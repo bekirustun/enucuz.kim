@@ -1,0 +1,3 @@
+﻿# nginx
+Nginx proxy configleri
+

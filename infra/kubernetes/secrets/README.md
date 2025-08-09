@@ -1,0 +1,3 @@
+﻿# secrets
+Kubernetes secret dosyalarÄ±
+

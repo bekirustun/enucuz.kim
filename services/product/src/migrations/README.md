@@ -1,0 +1,3 @@
+﻿# migrations
+Kubernetes servis manifestleri
+

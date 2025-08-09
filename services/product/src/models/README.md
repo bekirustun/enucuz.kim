@@ -1,0 +1,3 @@
+﻿# models
+Kubernetes servis manifestleri
+

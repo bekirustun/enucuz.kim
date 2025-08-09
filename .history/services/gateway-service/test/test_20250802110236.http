@@ -1,0 +1,12 @@
+### Tüm kullanıcıları listele
+GET http://localhost:3001/users
+
+### Yeni kullanıcı oluştur
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+  "name": "Test Kullanıcı",
+  "email": "testuser@example.com",
+  "password": "123456"
+}

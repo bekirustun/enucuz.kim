@@ -1,0 +1,43 @@
+# Node.js paketleri (her yerde)
+node_modules/
+**/node_modules/
+
+# Next.js build dosyaları (tüm uygulamalar)
+.next/
+**/.next/
+
+# Çıkartılabilir pnpm cache/lock dosyaları
+.pnpm-debug.log*
+shrinkwrap.yaml
+
+# Ortam dosyaları
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Sistem ve IDE dosyaları
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# İşletim sistemi çöp dosyaları
+Thumbs.db
+
+# pnpm lock
+# (pnpm-lock.yaml dosyasını kesinlikle **gitle paylaşmaya devam et**, çünkü ekipte veya deployda bağımlılık tutarlılığını sağlar.)
+
+# Geçici ve output dosyaları
+dist/
+build/
+out/
+
+# Log dosyaları
+*.log
+
+# MacOS ve Windows çöp dosyaları
+.DS_Store
+ehthumbs.db
+Icon?

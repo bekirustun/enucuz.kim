@@ -1,0 +1,3 @@
+﻿# events
+Kubernetes servis manifestleri
+

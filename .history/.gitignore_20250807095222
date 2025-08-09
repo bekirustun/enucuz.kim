@@ -1,0 +1,54 @@
+# ===========================
+# Node.js & Paket Yöneticileri
+# ===========================
+node_modules/
+**/node_modules/
+.pnpm-debug.log*
+
+# ===========================
+# Next.js Build Dosyaları
+# ===========================
+.next/
+**/.next/
+
+# ===========================
+# Çıkarılabilir Outputlar
+# ===========================
+dist/
+build/
+out/
+
+# ===========================
+# Ortam Dosyaları (Secrets)
+# ===========================
+.env
+.env.*
+!.env.example
+
+# ===========================
+# Sistem / IDE Dosyaları
+# ===========================
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# ===========================
+# Log Dosyaları
+# ===========================
+*.log
+
+# ===========================
+# pnpm Lock Dosyası
+# ===========================
+# pnpm-lock.yaml dosyasını **ignore etme**, mutlaka paylaş!
+# (Yani bu dosya .gitignore'a eklenmeyecek.)
+# ===========================
+
+# ===========================
+# Diğer
+# ===========================
+shrinkwrap.yaml

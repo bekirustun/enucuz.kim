@@ -1,0 +1,3 @@
+﻿# generators
+Kubernetes servis manifestleri
+

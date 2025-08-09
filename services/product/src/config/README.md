@@ -1,0 +1,3 @@
+﻿# config
+Global/shared config
+

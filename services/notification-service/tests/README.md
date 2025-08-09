@@ -1,0 +1,3 @@
+﻿# tests
+Kubernetes servis manifestleri
+

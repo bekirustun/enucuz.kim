@@ -1,0 +1,19 @@
+{
+  "name": "enucuzkim-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev:web": "pnpm --filter enucuzkim-web dev",
+    "dev:admin": "pnpm --filter enucuzkim-admin dev",
+    "build": "pnpm --recursive run build"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-next": "^15.4.6",
+    "@tailwindcss/postcss": "^4.1.11"
+  }
+}

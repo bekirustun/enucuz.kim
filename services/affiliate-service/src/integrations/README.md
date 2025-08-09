@@ -1,0 +1,3 @@
+﻿# integrations
+Kubernetes servis manifestleri
+

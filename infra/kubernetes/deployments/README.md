@@ -1,0 +1,3 @@
+﻿# deployments
+Kubernetes deployment manifestleri
+
