@@ -2,8 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller()
 export class HealthController {
-  @Get('/health')
+  @Get('health')
   health() {
-    return { status: 'ok', service: 'gateway', uptime: process.uptime() };
+    return { status: 'ok' };
   }
 }
