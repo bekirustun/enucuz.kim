@@ -1,0 +1,8 @@
+import { UserModule } from './user/user.module';
+
+@Module({
+  imports: [HttpModule, UserModule], // ← Buraya ekle
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}

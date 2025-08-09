@@ -90,3 +90,6 @@ coverage/
 # Diğer
 # ===========================
 shrinkwrap.yaml
+# VSCode Local History
+.history/
+

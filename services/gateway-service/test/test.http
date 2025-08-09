@@ -1,0 +1,28 @@
+### Tüm kullanıcıları listele
+GET http://localhost:3003/users
+
+### Yeni kullanıcı oluştur
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+  "name": "Esma",
+  "email": "tes2tuser@example.com",
+  "password": "123456"
+}
+
+### Kullanıcıyı güncelle (örnek ID: 1)
+PUT http://localhost:3003/users/11
+Content-Type: application/json
+
+{
+  "name": "Güncellenmiş Kullanıcı",
+  "email": "te3stuser@example.com",
+  "password": "654321"
+}
+
+### Kullanıcıyı sil (örnek ID: 1)
+DELETE http://localhost:3003/users/1
+### Tüm kullanıcıları listele
+GET http://localhost:3003/users
+
