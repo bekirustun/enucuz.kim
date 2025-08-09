@@ -1,9 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { UsersGatewayService } from './users.service';
 
 @Controller('users')
-export class UsersController {
-  constructor(private readonly svc: UsersService) {}
+export class UsersGatewayController {
+  constructor(private readonly svc: UsersGatewayService) {}
 
   @Get('health')
   health() {
