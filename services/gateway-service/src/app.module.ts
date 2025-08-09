@@ -6,8 +6,9 @@ import { UserProxyService } from './user/user.proxy';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [HttpModule], // Buraya eklendi!
+  imports: [HttpModule, HealthModule], // Buraya eklendi!
   controllers: [AppController, UserController],
   providers: [AppService, UserProxyService],
 })
 export class AppModule {}
+

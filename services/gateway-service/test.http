@@ -1,12 +1,2 @@
-### Kullanıcı Listele
-GET http://localhost:3000/users
-
-### Kullanıcı Oluştur
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-  "name": "Test Kullanıcı",
-  "email": "testuser@example.com",
-  "password": "123456"
-}
+### Health check
+GET http://localhost:3005/health
