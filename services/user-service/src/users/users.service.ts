@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-
 type User = { id: number; name: string; email?: string };
 
 @Injectable()
@@ -25,6 +24,7 @@ export class UsersService {
   remove(id: string) {
     const idx = this.data.findIndex(u => u.id === Number(id));
     if (idx === -1) return { deleted: 0 };
-    this.data.splice(idx, 1); return { deleted: 1 };
+    this.data.splice(idx, 1);
+    return { deleted: 1 };
   }
 }

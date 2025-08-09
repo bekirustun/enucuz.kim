@@ -2,6 +2,7 @@
   "name": "user-service",
   "version": "1.0.0",
   "description": "User microservice for enucuz.kim",
+  "private": true,
   "main": "dist/main.js",
   "scripts": {
     "start": "nest start",

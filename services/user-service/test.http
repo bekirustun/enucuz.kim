@@ -1,11 +1,2 @@
 ### list
 GET http://localhost:3010/users
-
-### get
-GET http://localhost:3010/users/1
-
-### create
-POST http://localhost:3010/users
-Content-Type: application/json
-
-{ "name": "Ayşe", "email": "ayse@example.com" }
