@@ -1,27 +1,24 @@
-﻿import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+
+export type UserRole = 'admin' | 'editor' | 'user';
 
 @Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
-  @Column({ length: 50 })
-  name: string;
+  @Column({ length: 120 })
+  name!: string;
 
-  @Column({ unique: true, length: 100 })
-  email: string;
+  @Column({ unique: true, length: 160 })
+  email!: string;
 
-  // Güvenlik için select: false, sorgularda görünmez
-  @Column({ select: false })
-  password: string;
+  @Column({ type: 'varchar', length: 20, default: 'user' })
+  role!: UserRole;
 
-  // AI veya profil özetleri için ilerde kullanılabilecek örnek alan
-  @Column({ nullable: true, length: 255 })
-  aiProfileSummary?: string;
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
 }
