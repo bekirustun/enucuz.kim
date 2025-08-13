@@ -1,0 +1,8 @@
+{
+  "features": [
+    { "key": "products", "name": "Ürün Yönetimi", "enabled": true, "parentKey": null, "meta": { "icon": "Appstore" } },
+    { "key": "products.add", "name": "Ürün Ekle", "enabled": true, "parentKey": "products" },
+    { "key": "products.bulk_import", "name": "Toplu İçe Aktarım", "enabled": false, "parentKey": "products" },
+    { "key": "products.price_compare", "name": "Fiyat Karşılaştırma", "enabled": true, "parentKey": "products" }
+  ]
+}

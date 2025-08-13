@@ -1,0 +1,5 @@
+key,name,enabled,parent_key
+products,Ürün Yönetimi,true,""
+products.add,Ürün Ekle,true,products
+products.bulk_import,Toplu İçe Aktarım,false,products
+products.price_compare,Fiyat Karşılaştırma,true,products
