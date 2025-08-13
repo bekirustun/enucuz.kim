@@ -1,17 +1,13 @@
-'use client';
+import "./globals.css";
+import "antd/dist/reset.css";
+import { ReactNode } from "react";
 
-import 'antd/dist/reset.css';
-import { ConfigProvider, App as AntApp } from 'antd';
-import React from 'react';
+export const metadata = { title: "Admin", description: "enucuz.kim admin" };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="tr">
-      <body>
-        <ConfigProvider>
-          <AntApp>{children}</AntApp>
-        </ConfigProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

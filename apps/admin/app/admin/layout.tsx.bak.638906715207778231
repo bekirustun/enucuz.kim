@@ -1,5 +1,5 @@
-'use client';
-import { ShoppingCartOutlined } from "@ant-design/icons";
+"use client";
+
 import "antd/dist/reset.css";
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
@@ -67,10 +67,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   // Statik menüler
   const staticMenus = useMemo(() => ([
-  { key: "/admin/dashboard", label: <Link href="/admin/dashboard">Dashboard</Link>, icon: <DashboardOutlined /> },
-  { key: "/admin/products",  label: <Link href="/admin/products">Ürünler</Link>,  icon: <ShoppingCartOutlined /> },
-  { key: "/admin/feature-flags", label: <Link href="/admin/feature-flags">Feature Flags</Link>, icon: <FlagOutlined /> },
-]), []);const menuItems = useMemo(() => [...staticMenus, ...dynamicMenus], [staticMenus, dynamicMenus]);
+    { key: "/admin", label: <Link href="/admin">Dashboard</Link>, icon: <DashboardOutlined /> },
+    { key: "/admin/feature-flags", label: <Link href="/admin/feature-flags">Feature Flags</Link>
+            <Link href="/admin/products">Ürünler</Link>, icon: <FlagOutlined /> },
+  ]), []);
+
+  const menuItems = useMemo(() => [...staticMenus, ...dynamicMenus], [staticMenus, dynamicMenus]);
 
   // Seçili anahtar
   const selectedKeys = useMemo(() => {
@@ -116,6 +118,4 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     </Layout>
   );
 }
-
-
 
