@@ -1,0 +1,55 @@
+"use client";
+
+import "antd/dist/reset.css";
+import React, { useMemo } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Layout, Menu, Typography, Space } from "antd";
+import { DashboardOutlined, FlagOutlined } from "@ant-design/icons";
+
+const { Header, Sider, Content } = Layout;
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  // Sol menü seçimi
+  const sideSelected = useMemo(() => {
+    if (pathname?.startsWith("/admin/feature-flags")) return "/admin/feature-flags";
+    return "/admin/dashboard";
+  }, [pathname]);
+
+  const sideItems = useMemo(() => ([
+    { key: "/admin/dashboard", icon: <DashboardOutlined />, label: <Link href="/admin/dashboard">Dashboard</Link> },
+    { key: "/admin/feature-flags", icon: <FlagOutlined />, label: <Link href="/admin/feature-flags">Feature Flags</Link> },
+  ]), []);
+
+  return (
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sider width={220} theme="dark">
+        <div style={{ color: "#fff", fontWeight: 700, fontSize: 18, padding: "16px 16px" }}>Admin</div>
+        <Menu mode="inline" theme="dark" selectedKeys={[sideSelected]} items={sideItems} />
+      </Sider>
+
+      <Layout>
+        <Header style={{ background: "#fff", padding: "0 16px", display: "flex", alignItems: "center", borderBottom: "1px solid #e5e7eb" }}>
+          <Typography.Title level={5} style={{ margin: 0 }}>Yönetim Paneli</Typography.Title>
+
+          {/* ÜST YATAY BAR — ŞİMDİLİK BOŞ */}
+          <div style={{ marginLeft: 16, flex: 1 }}>
+            <Menu mode="horizontal" items={[]} style={{ borderBottom: "none" }} />
+          </div>
+
+          <div style={{ marginLeft: "auto" }}>
+            <Space style={{ color: "#64748b" }}>admin@example.com</Space>
+          </div>
+        </Header>
+
+        <Content style={{ margin: 16 }}>
+          <div style={{ background: "#fff", padding: 16, borderRadius: 12, minHeight: "calc(100vh - 56px - 32px)" }}>
+            {children}
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
+  );
+}

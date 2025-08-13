@@ -11,8 +11,6 @@ import {
   ShoppingCartOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  LeftOutlined,
-  RightOutlined,
 } from "@ant-design/icons";
 
 const { Header, Sider, Content } = Layout;
@@ -30,7 +28,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     if (envName && envName.trim()) {
       setSiteName(envName.trim());
     } else if (typeof window !== "undefined") {
-      const host = window.location.hostname;
+      const host = window.location.hostname; // port hariç
       setSiteName(host || "enucuz.kim");
     }
   }, []);
@@ -42,7 +40,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return "/admin/dashboard";
   }, [pathname]);
 
-  // 4) Sol menü öğeleri
+  // 4) Sol menü öğeleri (Dashboard, Ürünler, Feature Flags)
   const sideItems = useMemo(
     () => [
       { key: "/admin/dashboard", icon: <DashboardOutlined />, label: <Link href="/admin/dashboard">Dashboard</Link> },
@@ -54,14 +52,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Sider
-        width={220}
-        theme="dark"
-        collapsible
-        collapsed={collapsed}
-        trigger={null}
-        style={{ position: "relative" }}
-      >
+      <Sider width={220} theme="dark" collapsible collapsed={collapsed} trigger={null}>
         <div
           style={{
             color: "#fff",
@@ -77,18 +68,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {siteName}
         </div>
         <Menu mode="inline" theme="dark" selectedKeys={[sideSelected]} items={sideItems} />
-
-        {/* SOL ALT AÇ/KAPA DÜĞMESİ */}
-        <div style={{ position: "absolute", left: 12, bottom: 12 }}>
-          <Button
-            type="default"
-            shape="circle"
-            size="small"
-            aria-label="Yan menüyü aç/kapa"
-            onClick={() => setCollapsed((c) => !c)}
-            icon={collapsed ? <RightOutlined /> : <LeftOutlined />}
-          />
-        </div>
       </Sider>
 
       <Layout>
@@ -102,10 +81,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             borderBottom: "1px solid #e5e7eb",
           }}
         >
-          {/* ÜSTTEKİ AÇ/KAPA (opsiyonel) */}
           <Button
             type="text"
-            aria-label="Yan menüyü aç/kapa"
+            aria-label="Toggle sidebar"
             onClick={() => setCollapsed((c) => !c)}
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             style={{ fontSize: 18 }}
@@ -114,7 +92,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             Yönetim Paneli
           </Typography.Title>
 
-          {/* Üst yatay bar ŞİMDİLİK BOŞ */}
+          {/** Üst yatay bar ŞİMDİLİK BOŞ, ileride widget/sekme eklenecek */}
           <div style={{ marginLeft: 16, flex: 1 }} />
 
           <div style={{ marginLeft: "auto" }}>

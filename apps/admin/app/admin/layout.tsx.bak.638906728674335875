@@ -1,0 +1,50 @@
+"use client";
+
+import "antd/dist/reset.css";
+import React, { useMemo } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Layout, Menu, Typography, Space } from "antd";
+import { DashboardOutlined, ShoppingCartOutlined, FlagOutlined } from "@ant-design/icons";
+
+const { Header, Sider, Content } = Layout;
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const selectedKey = useMemo(() => {
+    if (pathname?.startsWith("/admin/products")) return "/admin/products";
+    if (pathname?.startsWith("/admin/feature-flags")) return "/admin/feature-flags";
+    return "/admin/dashboard";
+  }, [pathname]);
+
+  const items = useMemo(() => ([
+    { key: "/admin/dashboard", icon: <DashboardOutlined />, label: <Link href="/admin/dashboard">Dashboard</Link> },
+    { key: "/admin/products",  icon: <ShoppingCartOutlined />, label: <Link href="/admin/products">Ürünler</Link> },
+    { key: "/admin/feature-flags", icon: <FlagOutlined />, label: <Link href="/admin/feature-flags">Feature Flags</Link> },
+  ]), []);
+
+  return (
+    <Layout style={{ minHeight: "100vh" }}>
+      <Sider width={220} theme="dark">
+        <div style={{ color: "#fff", fontWeight: 700, fontSize: 18, padding: "16px 16px" }}>enucuz.kim</div>
+        <Menu mode="inline" theme="dark" selectedKeys={[selectedKey]} items={items} />
+      </Sider>
+
+      <Layout>
+        <Header style={{ background: "#0b1a2b", display: "flex", alignItems: "center", padding: "0 16px", color: "#fff" }}>
+          <Typography.Title level={4} style={{ margin: 0, color: "#fff" }}>Admin</Typography.Title>
+          <div style={{ marginLeft: "auto" }}>
+            <Space style={{ color: "#cbd5e1" }}>admin@example.com</Space>
+          </div>
+        </Header>
+
+        <Content style={{ margin: 16 }}>
+          <div style={{ background: "#fff", padding: 16, borderRadius: 12, minHeight: "calc(100vh - 56px - 32px)" }}>
+            {children}
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
+  );
+}
